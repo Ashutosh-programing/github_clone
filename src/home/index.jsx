@@ -117,7 +117,7 @@ const Home = () => {
           <div className="home-container-1 border-r border-gray-700 bg-bg-custom-gray p-5 pt-11 max-[1199px]:w-1/3 max-[712px]:hidden w-1/5">
             <div className="container-1-first flex flex-wrap items-center justify-between">
               <div className="first text-gray-custom-2 text-sm">Top repositories</div>
-              <div className="second w-16 p-1 flex   items-center justify-center rounded-md cursor-pointer bg-green-600 text-sm">
+              <div className="second w-16 p-1 flex  items-center justify-center rounded-md cursor-pointer bg-green-600 text-sm">
                 <img className='h-3 w-3 mr-2' src={printer} alt="error" />
                 <p className='text-white'>New</p>
                 </div>

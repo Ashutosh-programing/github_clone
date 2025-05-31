@@ -45,6 +45,8 @@ const Navbar = () => {
   const[count3,setCount3] = useState(0);
   const[open5,setOpen5] = useState(0);
 
+  const[side,setSide] = useState(false);
+
   const openConditional=async ()=>{
     setCount(count + 1);
     setOpen(open + 1);
@@ -86,6 +88,8 @@ const Navbar = () => {
     setCount3(0);
     setOpen5(0);
   }
+
+  const isOpen = count2;
   
   const arr1=[
     {
@@ -142,42 +146,42 @@ const Navbar = () => {
 
             {/* This is navbar 1 */}
             <div className="navbar-1 flex items-center w-full">
-                <div onClick={openConditional2} className="navbar-menu ml-4 p-2 border rounded-md border-gray-custom"><img className=' cursor-pointer h-4 w-4' src={menu} alt="menu" /></div>
+                <div onClick={openConditional2} className="navbar-menu ml-2 p-2 border rounded-md border-gray-custom"><img className=' cursor-pointer h-4 w-4' src={menu} alt="menu" /></div>
                 <div className="navbar-icon ml-4"><img className='h-7 w-7' src={github} alt="github" /></div>
                 <div className="navbar-name ml-4 text-sm overflow-ellipsis font-bold">Dashboard</div>
             </div>
-            {count2==1 && <div className='contidional-dashboardm w-80 border-r border-gray-custom rounded-r-lg h-screen px-4 bg-gray-custom-dashboard text-gray-custom absolute z-10 left-0 top-0'>
-              <div className="dashboard-container-wrapper ">
+            {<div className={` contidional-dashboard duration-200 delay-75 overflow-hidden ${count2 ==1? " w-80  border-r border-gray-custom rounded-r-lg h-screen px-4 bg-gray-custom-dashboard text-gray-custom" : ' w-0'}  absolute z-10 left-0 top-0 `}>
+              <div className={`dashboard-container-wrapper ${count2 ==1 ? 'block': 'hidden'}`}>
                       <div className="dashboard-container-1 flex justify-between items-center h-16 p-1 ">
                         <img className=' h-8 w-8' src={github} alt="GitHub"/>
-                        <div onClick={()=>setCount2(0)} className=' text-gray-custom cursor-pointer p-2 hover:bg-slate-700 border-0 rounded-md'><img className=' h-5 w-5' src={cross} alt="" /></div>
+                        <div onClick={closeConditional2} className=' text-gray-custom cursor-pointer p-2 hover:bg-slate-700 border-0 rounded-md'><img className=' h-5 w-5' src={cross} alt="" /></div>
                       </div>
                       <div className="dashboard-container-2 flex flex-col mt-4">
-                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:bg-slate-700">
+                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2  hover:transition  hover:duration-500 hover:ease-in-out hover:bg-slate-700 ">
                         <img className='h-4 w-4 mr-2' src={home} alt="" /> 
                         <NavLink to='/'>Home</NavLink>
                         </div>
-                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:bg-slate-700">
+                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:transition hover:duration-500 hover:ease-in-out hover:bg-slate-700">
                         <img className='h-4 w-4 mr-2' src={circle} alt="" /> 
                         <NavLink to='/issues'>Issues</NavLink>
                         </div>
-                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:bg-slate-700">
+                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:transition  hover:duration-500 hover:ease-in-out hover:bg-slate-700">
                         <img className='h-4 w-4 mr-2' src={branch} alt="" /> 
                         <NavLink>Pull requests</NavLink>
                         </div>
-                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:bg-slate-700">
+                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:transition  hover:duration-500 hover:ease-in-out hover:bg-slate-700">
                         <img className='h-4 w-4 mr-2' src={project} alt="" /> 
                         <NavLink>Projects</NavLink>
                         </div>
-                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:bg-slate-700">
+                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:transition  hover:duration-500 hover:ease-in-out hover:bg-slate-700">
                         <img className='h-4 w-4 mr-2' src={discuss} alt="" /> 
                         <NavLink>Discussion</NavLink>
                         </div>
-                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:bg-slate-700">
+                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:transition  hover:duration-500 hover:ease-in-out hover:bg-slate-700">
                         <img className='h-4 w-4 mr-2' src={discuss} alt="" /> 
                         <NavLink>Codespaces</NavLink>
                         </div>
-                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:bg-slate-700">
+                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:transition  hover:duration-500 hover:ease-in-out hover:bg-slate-700">
                         <img className='h-4 w-4 mr-2' src={frog} alt="" /> 
                         <NavLink>Copilot</NavLink>
                         </div>
@@ -185,11 +189,11 @@ const Navbar = () => {
                         </div>
                       </div>
                       <div className="dashboard-container-3 py-2">
-                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:bg-slate-700">
+                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:transition  hover:duration-500 hover:ease-in-out hover:bg-slate-700">
                         <img className='h-4 w-4 mr-2' src={telescope} alt="" /> 
                         <NavLink>Explore</NavLink>
                         </div>
-                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:bg-slate-700">
+                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:transition  hover:duration-500 hover:ease-in-out hover:bg-slate-700">
                         <img className='h-4 w-4 mr-2' src={gift} alt="" /> 
                         <NavLink>Marketplace</NavLink>
                         </div>
@@ -200,7 +204,7 @@ const Navbar = () => {
                         <div className="title text-xs">Repositories</div>
                         <img className='h-3 w-3 ' src={search} alt="" />
                         </div>
-                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:bg-slate-700">
+                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:transition  hover:duration-500 hover:ease-in-out hover:bg-slate-700">
                         <img className='h-4 w-4 mr-2 rounded-full border' src={img1} alt="" /> 
                         <NavLink>Ashutosh-programming/Netflix</NavLink>
                         </div>
@@ -218,7 +222,7 @@ const Navbar = () => {
                     </div>
               </div>}
               {open2==1 && 
-                <div onClick={closeConditional2} className="backdrop w-screen h-screen bg-bg-custom-gray opacity-25 absolute left-0 top-0"></div>
+                <div onClick={closeConditional2} className="backdrop w-screen h-screen bg-gray-custom-dashboard opacity-25 absolute left-0 top-0"></div>
                 }
 
             {/* This is navbar 2 */}
@@ -316,21 +320,21 @@ const Navbar = () => {
                   </div>} 
                 <div className="navbar-icon3 max-[800px]:p-2 max-[800px]:w-8 max-[600px]:hidden border border-gray-custom rounded-md p-2 mr-4 hover:bg-gray-800 cursor-pointer"><img className='h-3 w-3' src={circle} alt="" /></div>
                 <div className="navbar-icon4 max-[800px]:p-2 max-[800px]:w-8 max-[600px]:hidden border border-gray-custom rounded-md p-2 mr-4 hover:bg-gray-800 cursor-pointer"><img className='h-4 w-4' src={branch} alt="" /></div>
-                <div onClick={openConditional3} className="navbar-profile-icon border box-border border-gray-custom rounded-full p-2 cursor-pointer"><img className=' object-fill w-8 h-6 box-border' src={img1} alt="" />
+                <div onClick={openConditional3} className="navbar-profile-icon border border-gray-custom rounded-full w-10 h-9 cursor-pointer"><img className=' object-cover rounded-full object-center w-10 h-9' src={img1} alt="" />
                 </div>
             </div>
-            {count3==1 && <div className='contidional-dashboardm w-80 border-r border-gray-custom rounded-l-lg h-screen px-4 bg-gray-custom-dashboard text-gray-custom absolute z-10 right-0 top-0'>
-              <div className="dashboard-container-wrapper ">
+            {<div className={`contidional-dashboardm  duration-300 overflow-hidden ${count3 ==1? " w-80 delay-75 border-r border-gray-custom rounded-r-lg h-screen px-4 bg-gray-custom-dashboard text-gray-custom" : ' w-0'}  absolute z-10 right-0 top-0`}>
+              <div className={`dashboard-container-wrapper ${count3 == 1? 'block':'hidden'}`}>
                       <div className="dashboard-container-1 flex justify-between items-center h-16 p-1 ">
                         <div className='flex items-center'><img className=' rounded-full h-8 w-8 mr-2' src={img1} alt="GitHub"/>
                         <div className="txt text-gray-custom">Ashutosh-programming</div>
                         </div>
-                        <div onClick={()=>setCount3(0)} className=' text-gray-custom cursor-pointer p-2 hover:bg-slate-700 border-0 rounded-md'><img className=' h-5 w-5' src={cross} alt="" /></div>
+                        <div onClick={closeConditional3} className=' text-gray-custom cursor-pointer p-2 hover:transition  hover:duration-500 hover:ease-in-out hover:bg-slate-700 border-0 rounded-md'><img className=' h-5 w-5' src={cross} alt="" /></div>
                       </div>
                       <div className="dashboard-container-2 flex flex-col mt-4">
                         {arr1.map((e)=>{
                           return(
-                         <div key={e.id} className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:bg-slate-700">
+                         <div key={e.id} className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:transition  hover:duration-500 hover:ease-in-out hover:bg-slate-700">
                         {e.img}
                         <NavLink to='/'>{e.text}</NavLink>
                         </div>
@@ -341,11 +345,11 @@ const Navbar = () => {
                         </div>
                       </div>
                       <div className="dashboard-container-3 py-2">
-                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:bg-slate-700">
+                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:transition  hover:duration-500 hover:ease-in-out hover:bg-slate-700">
                         <img className='h-4 w-4 mr-2' src={telescope} alt="" /> 
                         <NavLink>Explore</NavLink>
                         </div>
-                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:bg-slate-700">
+                        <div className="menu-1 w-full flex items-center text-sm text-white mr-2 rounded-md p-2 hover:transition  hover:duration-500 hover:ease-in-out hover:bg-slate-700">
                         <img className='h-4 w-4 mr-2' src={gift} alt="" /> 
                         <NavLink>Marketplace</NavLink>
                         </div>

@@ -7,50 +7,50 @@ import Issues from './issues'
 
 
 function App() {
-  // const router = createBrowserRouter([
-  // {
-  //   path:'/',
-  //   element:
-  //   <div>
-  //     <Navbar/>
-  //     <Home/>
-  //   </div>,
-  // },
-  //   {
-  //   path:'/issues',
-  //   element:
-  //   <div>
-  //     <Navbar/>
-  //     <Issues/>
-  //   </div>,
-  // },
-
-  // ])
-
   const router = createBrowserRouter([
   {
-    path:'/github_clone/',
-    element:<App/>,
-    children:[
-      {
-        path:"/github_clone/",
-        element:
-        <div>
-          <Navbar/>
-          <Home/>
-        </div>
-      },
-      {
-        path:"/github_clone/issues",
-        element:
-        <div>
-          <Navbar/>
-          <Issues/> 
-        </div>
-      },
-    ]
+    path:'/',
+    element:
+    <div>
+      <Navbar/>
+      <Home/>
+    </div>,
   },
-])
+    {
+    path:'/issues',
+    element:
+    <div>
+      <Navbar/>
+      <Issues/>
+    </div>,
+  },
+
+  ])
+
+//   const router = createBrowserRouter([
+//   {
+//     path:'/github_clone/',
+//     element:<App/>,
+//     children:[
+//       {
+//         path:"/github_clone/",
+//         element:
+//         <div>
+//           <Navbar/>
+//           <Home/>
+//         </div>
+//       },
+//       {
+//         path:"/github_clone/issues",
+//         element:
+//         <div>
+//           <Navbar/>
+//           <Issues/> 
+//         </div>
+//       },
+//     ]
+//   },
+// ])
 
   return (
     <>
